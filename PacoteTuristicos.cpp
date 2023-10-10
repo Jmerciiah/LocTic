@@ -5,21 +5,6 @@
 
 using namespace std;
 
-/*class Funcionario{
-    public:
-    string nome;
-    string matricula;
-
-    Funcionario(string _nome, string _matricula): nome(_nome), matricula(_matricula){}
-
-    void criarPacotes();
-    void listarPacote();
-    void venderPacote();
-    void cadastraCliente();
-    void listarCliente();  
-
-};*/
-
 class Cliente{
     public:
     string nome;
