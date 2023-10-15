@@ -60,6 +60,9 @@ class Pacote{
 };
 
 class Reserva{
+    public:
+        Cliente *cliente;
+        Pacote *pacote;
 
 
 };
@@ -74,7 +77,6 @@ class Roteiro : public Evento {
 
   }
                        
-
 };
 
 class Deslocamento : public Evento {
@@ -101,21 +103,45 @@ class Pernoite : public Evento {
     }
 };
 
+class App {
+public:
+    int run() {
+        Cliente *cliente1 = new Cliente("Tiago", "060.008", "991111", "Rua São Carlos", "13/04/1996");
+        cout << "Nome do Cliente: " << cliente1->nome << endl;
+    cout << "CPF: " << cliente1->cpf << endl;
+
+        Dependente *dependente1 = new Dependente(cliente1, "Iallan", "18/02/1996", "312312312");
+        cout << "Nome do Dependente: " <<dependente1->nomeDependente << endl;
+        cout << "CPF (DEP): " << dependente1->cpfDependente << endl;
+
+        Roteiro *roteiro1 = new Roteiro("Visita a Catedral de São Sebastião ", 120); 
+        cout << "Evento de Roteiro: " << roteiro1->atividade << " (Duração: " << roteiro1->duracao << " minutos)" << endl;
+
+        
+        Deslocamento *deslocamento1 = new Deslocamento("Aeroporto", "Hotel", 60); 
+        cout << "Evento de Deslocamento: De " << deslocamento1->de << " para " << deslocamento1->para << " (Duração: " << deslocamento1->duracao << " minutos)" << endl;
+
+        
+        Pernoite *pernoite1 = new Pernoite("Hotel A", 720); 
+        cout << "Evento de Pernoite: No " << pernoite1->local << " (Duração: " << pernoite1->duracao << " minutos)" << endl;
+    
+
+        return 0;
+    }
+};
 
 int main(){
 
-    Cliente *cliente1 = new Cliente("Tiago", "060.008", "991111", "Rua São Carlos", "13/04/1996");
+    /*Cliente *cliente1 = new Cliente("Tiago", "060.008", "991111", "Rua São Carlos", "13/04/1996");
         cout << cliente1->nome << endl;
         cout << cliente1->cpf << endl;
     
     Dependente *dependente1 = new Dependente(cliente1, "Iallan", "18/02/1996", "312312312");
         cout << dependente1->nomeDependente << endl;
-        cout << dependente1->cpfDependente << endl;
+        cout << dependente1->cpfDependente << endl;*/
 
-    
-
-    //Cliente cliente1 ("Tiago", "060.008", "991111", "Rua São Carlos", "13/04/1996");
-
+         App app;
+    return app.run();
 
     return 0;
 }
